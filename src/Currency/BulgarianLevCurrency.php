@@ -44,5 +44,5 @@ class BulgarianLevCurrency extends AbstractCurrency implements CurrencyInterface
      *
      * @var string
      */
-    protected $negative = '$:value лв';
+    protected $negative = ':value лв';
 }
