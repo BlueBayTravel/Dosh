@@ -5,7 +5,7 @@
 
 ```php
 // Parse a document.
-$dosh = new Dosh(Dosh::GBP, 3);
+$dosh = new Dosh(Dosh::GBP);
 $dosh->format('25.43'); // £25.430
 
 // Dependency injection example.
