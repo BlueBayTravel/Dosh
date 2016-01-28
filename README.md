@@ -1,6 +1,6 @@
 # Dosh
 
-[![StyleCI](https://styleci.io/repos/50581478c/shield)](https://styleci.io/repos/50581478c)
+[![StyleCI](https://styleci.io/repos/50581478/shield)](https://styleci.io/repos/50581478)
 [![Build Status](https://img.shields.io/travis/BlueBayTravel/Dosh.svg?style=flat-square)](https://travis-ci.org/BlueBayTravel/Dosh)
 
 ```php
