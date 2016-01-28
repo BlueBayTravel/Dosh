@@ -1,11 +1,10 @@
 # Dosh
 
-[![StyleCI](https://styleci.io/repos/47688815/shield)](https://styleci.io/repos/47688815)
-[![Build Status](https://img.shields.io/travis/BlueBayTravel/Phrontmatter.svg?style=flat-square)](https://travis-ci.org/BlueBayTravel/Phrontmatter)
+[![StyleCI](https://styleci.io/repos/50581478c/shield)](https://styleci.io/repos/50581478c)
+[![Build Status](https://img.shields.io/travis/BlueBayTravel/Dosh.svg?style=flat-square)](https://travis-ci.org/BlueBayTravel/Dosh)
 
 ```php
 // Parse a document.
-Phrontmatter::parse("---\nfoo: bar---\nThis is actual content!")->foo;
 $dosh = new Dosh(Dosh::GBP, 3);
 $dosh->format('25.43'); // £25.430
 
