@@ -62,4 +62,10 @@ class DoshTest extends AbstractTestCase
         $dosh = new Dosh(Dosh::BGN, 2);
         $this->assertSame('12.50 лв', $dosh->format('12.50'));
     }
+
+    public function testYenCurrencyInstance()
+    {
+        $dosh = new Dosh(Dosh::JPY, 2);
+        $this->assertSame('¥150.00', $dosh->format('150'));
+    }
 }

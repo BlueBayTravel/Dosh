@@ -35,6 +35,13 @@ class Dosh
     const BGN = '\\BlueBayTravel\\Dosh\\Currency\\BulgarianLevCurrency';
 
     /**
+     * BGN currency.
+     *
+     * @var string
+     */
+    const JPY = '\\BlueBayTravel\\Dosh\\Currency\\YenCurrency';
+
+    /**
      * The currency instance.
      *
      * @var \BlueBayTravel\Dosh\Currency\CurrencyInterface
