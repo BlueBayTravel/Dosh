@@ -1,19 +1,44 @@
-Copyright (c) 2015 Blue Bay Travel
+# Dosh
 
-Permission is hereby granted, free of charge, to any person obtaining a
-copy of this software and associated documentation files (the "Software"),
-to deal in the Software without restriction, including without limitation
-the rights to use, copy, modify, merge, publish, distribute, sublicense,
-and/or sell copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following conditions:
+[![StyleCI](https://styleci.io/repos/47688815/shield)](https://styleci.io/repos/47688815)
+[![Build Status](https://img.shields.io/travis/BlueBayTravel/Phrontmatter.svg?style=flat-square)](https://travis-ci.org/BlueBayTravel/Phrontmatter)
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+```php
+// Parse a document.
+Phrontmatter::parse("---\nfoo: bar---\nThis is actual content!")->foo;
+$dosh = new Dosh(Dosh::GBP, 3);
+$dosh->format('25.43'); // £25.430
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-DEALINGS IN THE SOFTWARE.
+// Dependency injection example.
+$dosh->format("100");
+
+// Change currency
+$dosh = new Dosh(Dosh::USD);
+$dosh->format("100"); // $100
+````
+
+## Installation
+
+Require this package, with [Composer](https://getcomposer.org/), in the root directory of your project.
+
+```bash
+composer require bluebaytravel/dosh
+```
+
+### Laravel Installation
+
+Add the service provider to `config/app.php` in the `providers` array.
+
+```php
+BlueBayTravel\Dosh\DoshServiceProvider::class
+```
+
+If you want you can use the [facade](http://laravel.com/docs/facades). Add the reference in `config/app.php` to your aliases array.
+
+```php
+'Dosh' => BlueBayTravel\Dosh\Facades\Dosh::class
+```
+
+## License
+
+Blue Bay Travel Dosh is licensed under [The MIT License (MIT)](LICENSE).
