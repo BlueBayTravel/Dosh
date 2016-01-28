@@ -11,8 +11,8 @@
 
 namespace BlueBayTravel\Tests\Dosh\Facades;
 
-use BlueBayTravel\Dosh\Facades\Dosh as DoshFacade;
 use BlueBayTravel\Dosh\Dosh;
+use BlueBayTravel\Dosh\Facades\Dosh as DoshFacade;
 use BlueBayTravel\Tests\Dosh\AbstractTestCase;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
 
