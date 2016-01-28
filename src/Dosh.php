@@ -42,6 +42,13 @@ class Dosh
     const JPY = '\\BlueBayTravel\\Dosh\\Currency\\YenCurrency';
 
     /**
+     * EUR currency.
+     *
+     * @var string
+     */
+    const EUR = '\\BlueBayTravel\\Dosh\\Currency\\EuroCurrency';
+
+    /**
      * The currency instance.
      *
      * @var \BlueBayTravel\Dosh\Currency\CurrencyInterface

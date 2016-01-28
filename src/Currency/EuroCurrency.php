@@ -12,18 +12,18 @@
 namespace BlueBayTravel\Dosh\Currency;
 
 /**
- * This is the bulgarian lev currency class.
+ * This is the euro currency class.
  *
  * @author James Brooks <james@bluebaytravel.co.uk>
  */
-class BulgarianLevCurrency extends AbstractCurrency implements CurrencyInterface
+class EuroCurrency extends AbstractCurrency implements CurrencyInterface
 {
     /**
      * The currency code.
      *
      * @var string
      */
-    protected $code = 'BGN';
+    protected $code = 'EUR';
 
     /**
      * The precision used for the value.
@@ -37,12 +37,12 @@ class BulgarianLevCurrency extends AbstractCurrency implements CurrencyInterface
      *
      * @var string
      */
-    protected $positive = ':value лв';
+    protected $positive = '€:value';
 
     /**
      * The format used for negative amounts.
      *
      * @var string
      */
-    protected $negative = '-:value лв';
+    protected $negative = '-€:value';
 }

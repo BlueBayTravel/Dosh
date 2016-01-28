@@ -49,23 +49,34 @@ class DoshTest extends AbstractTestCase
     {
         $dosh = new Dosh(Dosh::GBP, 2);
         $this->assertSame('£15.00', $dosh->format('15'));
+        $this->assertSame('-£15.00', $dosh->format('-15'));
     }
 
     public function testUnitedStatesDollarInstance()
     {
         $dosh = new Dosh(Dosh::USD, 2);
         $this->assertSame('$12.50', $dosh->format('12.50'));
+        $this->assertSame('-$12.50', $dosh->format('-12.50'));
     }
 
     public function testBulgarianLevInstance()
     {
         $dosh = new Dosh(Dosh::BGN, 2);
         $this->assertSame('12.50 лв', $dosh->format('12.50'));
+        $this->assertSame('-12.50 лв', $dosh->format('-12.50'));
     }
 
     public function testYenCurrencyInstance()
     {
         $dosh = new Dosh(Dosh::JPY, 2);
         $this->assertSame('¥150.00', $dosh->format('150'));
+        $this->assertSame('-¥150.00', $dosh->format('-150'));
+    }
+
+    public function testEuroCurrencyInstance()
+    {
+        $dosh = new Dosh(Dosh::EUR, 2);
+        $this->assertSame('€220.00', $dosh->format('220'));
+        $this->assertSame('-€220.00', $dosh->format('-220'));
     }
 }
