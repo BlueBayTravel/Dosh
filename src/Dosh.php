@@ -49,20 +49,6 @@ class Dosh
     const EUR = '\\BlueBayTravel\\Dosh\\Currency\\EuroCurrency';
 
     /**
-     * SEK currency.
-     *
-     * @var string
-     */
-    const SEK = '\\BlueBayTravel\\Dosh\\Currency\\KronaCurrency';
-
-    /**
-     * TRY currency.
-     *
-     * @var string
-     */
-    const TRY = '\\BlueBayTravel\\Dosh\\Currency\\LiraCurrency';
-
-    /**
      * The currency instance.
      *
      * @var \BlueBayTravel\Dosh\Currency\CurrencyInterface
