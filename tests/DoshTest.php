@@ -79,4 +79,18 @@ class DoshTest extends AbstractTestCase
         $this->assertSame('€220.00', $dosh->format('220'));
         $this->assertSame('-€220.00', $dosh->format('-220'));
     }
+
+    public function testKronaCurrencyInstance()
+    {
+        $dosh = new Dosh(Dosh::SEK, 2);
+        $this->assertSame('kr220.00', $dosh->format('220'));
+        $this->assertSame('-kr220.00', $dosh->format('-220'));
+    }
+
+    public function testLiraCurrencyInstance()
+    {
+        $dosh = new Dosh(Dosh::TRY, 2);
+        $this->assertSame('₺220.00', $dosh->format('220'));
+        $this->assertSame('-₺220.00', $dosh->format('-220'));
+    }
 }
