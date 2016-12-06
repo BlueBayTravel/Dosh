@@ -90,10 +90,12 @@ class Dosh
      *
      * @param int $precision
      *
-     * @return void
+     * @return $this
      */
     public function setPrecision($precision)
     {
         $this->bureau->setPrecision($precision);
+
+        return $this;
     }
 }
