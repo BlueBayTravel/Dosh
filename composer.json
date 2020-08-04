@@ -7,9 +7,9 @@
         "email": "james@bluebaytravel.co.uk"
     }],
     "require": {
-        "php": "^7.4",
-        "illuminate/contracts": "*",
-        "illuminate/support": "*"
+        "php": "^7.0",
+        "illuminate/contracts": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|^6.0|^7.0",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|^6.0|^7.0"
     },
     "require-dev": {
         "graham-campbell/testbench": "^3.1",
