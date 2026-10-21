@@ -80,7 +80,7 @@ abstract class AbstractCurrency
     public function format($value)
     {
         $format = $value === null || $value >= 0 ? $this->positive : $this->negative;
-        $amount = $this->round(abs($value));
+        $amount = $this->round(abs($value ?? 0));
 
         return preg_replace('/\:value/u', $amount, $format);
     }

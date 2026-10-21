@@ -1,18 +1,26 @@
 language: php
 
-php:
-  - 7.0
-  - 7.4
+dist: focal
 
-sudo: false
+jobs:
+  include:
+    - php: '7.0'
+      dist: bionic
+      env: TESTBENCH_VERSION='^3.1' PHPUNIT_VERSION='^5.7' PHPUNIT_CONFIG=phpunit.legacy.xml.dist
+    - php: '7.4'
+      env: TESTBENCH_VERSION='^5.7' PHPUNIT_VERSION='^9.6' PHPUNIT_CONFIG=phpunit.legacy.xml.dist
+    - php: '8.2'
+      env: TESTBENCH_VERSION='^6.3' PHPUNIT_VERSION='^11.5' PHPUNIT_CONFIG=phpunit.xml.dist
+    - php: '8.4'
+      env: TESTBENCH_VERSION='^6.3' PHPUNIT_VERSION='^11.5' PHPUNIT_CONFIG=phpunit.xml.dist
+
+before_install:
+  - if [[ "$TRAVIS_PHP_VERSION" == 7.* ]]; then composer self-update --2.2; else composer self-update --2; fi
 
 install:
-  - travis_retry composer install --no-interaction --prefer-source
+  - travis_retry composer update --no-interaction --prefer-dist --no-plugins --with "graham-campbell/testbench:$TESTBENCH_VERSION" --with "phpunit/phpunit:$PHPUNIT_VERSION"
 
 script:
-  - if [ "$TRAVIS_PHP_VERSION" != "5.5.9" ] && [ "$TRAVIS_PHP_VERSION" != "5.5" ] && [ "$TRAVIS_PHP_VERSION" != "5.6" ]; then vendor/bin/phpunit; fi
-  - if [ "$TRAVIS_PHP_VERSION" == "5.5.9" ] || [ "$TRAVIS_PHP_VERSION" == "5.5" ] || [ "$TRAVIS_PHP_VERSION" == "5.6" ]; then vendor/bin/phpunit --coverage-clover build/logs/clover.xml; fi
-
-after_script:
-  - if [ "$TRAVIS_PHP_VERSION" == "5.5.9" ] || [ "$TRAVIS_PHP_VERSION" == "5.5" ] || [ "$TRAVIS_PHP_VERSION" == "5.6" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
-  - if [ "$TRAVIS_PHP_VERSION" == "5.5.9" ] || [ "$TRAVIS_PHP_VERSION" == "5.5" ] || [ "$TRAVIS_PHP_VERSION" == "5.6" ]; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi
+  - composer validate --strict --no-plugins
+  - composer check-platform-reqs --no-plugins
+  - vendor/bin/phpunit --configuration "$PHPUNIT_CONFIG"

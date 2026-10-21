@@ -17,14 +17,14 @@ use GrahamCampbell\TestBench\AbstractPackageTestCase;
 abstract class AbstractTestCase extends AbstractPackageTestCase
 {
     /**
-     * Get the service provider class.
+     * Get the package service providers.
      *
      * @param \Illuminate\Contracts\Foundation\Application $app
      *
-     * @return string
+     * @return array
      */
-    protected function getServiceProviderClass($app)
+    protected function getPackageProviders($app): array
     {
-        return DoshServiceProvider::class;
+        return [DoshServiceProvider::class];
     }
 }
