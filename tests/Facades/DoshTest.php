@@ -14,39 +14,26 @@ namespace BlueBayTravel\Tests\Dosh\Facades;
 use BlueBayTravel\Dosh\Dosh;
 use BlueBayTravel\Dosh\Facades\Dosh as DoshFacade;
 use BlueBayTravel\Tests\Dosh\AbstractTestCase;
-use GrahamCampbell\TestBenchCore\FacadeTrait;
+use Illuminate\Support\Facades\Facade;
 
 class DoshTest extends AbstractTestCase
 {
-    use FacadeTrait;
-
-    /**
-     * Get the facade accessor.
-     *
-     * @return string
-     */
-    protected function getFacadeAccessor()
+    public function testFacadeUsesTheRegisteredSingleton()
     {
-        return 'dosh';
+        $this->assertSame($this->app->make('dosh'), DoshFacade::getFacadeRoot());
+        $this->assertSame('£0.00', DoshFacade::format(null));
+        $this->assertSame('-£1,234.50', DoshFacade::format('-1234.50'));
+        $this->assertSame($this->app->make('dosh'), DoshFacade::setPrecision(0));
+        $this->assertSame('£1,235', $this->app->make(Dosh::class)->format('1234.5'));
     }
 
-    /**
-     * Get the facade class.
-     *
-     * @return string
-     */
-    protected function getFacadeClass()
+    public function testIsAFacade()
     {
-        return DoshFacade::class;
+        $this->assertTrue(is_subclass_of(DoshFacade::class, Facade::class));
     }
 
-    /**
-     * Get the facade root.
-     *
-     * @return string
-     */
-    protected function getFacadeRoot()
+    public function testFacadeRoot()
     {
-        return Dosh::class;
+        $this->assertInstanceOf(Dosh::class, DoshFacade::getFacadeRoot());
     }
 }

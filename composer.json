@@ -7,13 +7,13 @@
         "email": "james@bluebaytravel.co.uk"
     }],
     "require": {
-        "php": "^7.0",
-        "illuminate/contracts": "^5|^6|^7",
-        "illuminate/support": "^5|^6|^7"
+        "php": "^7.0 || ^8.0",
+        "illuminate/contracts": "^5 || ^6 || ^7 || ^12",
+        "illuminate/support": "^5 || ^6 || ^7 || ^12"
     },
     "require-dev": {
-        "graham-campbell/testbench": "^3.1",
-        "phpunit/phpunit": "^4.8|^5.0"
+        "graham-campbell/testbench": "^3.1 || ^5.7 || ^6.3",
+        "phpunit/phpunit": "^4.8 || ^5.0 || ^8.5 || ^9.6 || ^11.5"
     },
     "autoload": {
         "psr-4": {
@@ -24,6 +24,9 @@
         "psr-4": {
             "BlueBayTravel\\Tests\\Dosh\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "@php vendor/bin/phpunit"
     },
     "config": {
         "preferred-install": "dist"

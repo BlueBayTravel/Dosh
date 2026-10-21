@@ -37,6 +37,11 @@ class DoshTest extends AbstractTestCase
         $this->assertSame('£20.0000', $this->app->dosh->format('20'));
     }
 
+    public function testFormatNullAsZero()
+    {
+        $this->assertSame('£0.00', $this->app->dosh->format(null));
+    }
+
     public function testFormatPoundSterlingDefaultNegative()
     {
         $this->app->dosh->setPrecision(0);
